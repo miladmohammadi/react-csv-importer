@@ -5,10 +5,12 @@ import './TextButton.scss';
 export const TextButton: React.FC<{
   disabled?: boolean;
   onClick?: () => void;
-}> = ({ disabled, onClick, children }) => {
+  sx?: any;
+}> = ({ disabled, onClick, sx, children }) => {
   return (
     <button
       className="CSVImporter_TextButton"
+      css={sx?.TextButtonStyles ?? null}
       disabled={disabled}
       onClick={onClick}
     >

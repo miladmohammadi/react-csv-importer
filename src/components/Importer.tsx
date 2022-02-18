@@ -14,6 +14,8 @@ import {
 import './Importer.scss';
 import { LocaleContext } from '../locale/LocaleContext';
 import { enUS } from '../locale';
+/** @jsx jsx */
+import { jsx } from '@emotion/react';
 
 // internal context for registering field definitions
 type FieldDef = Field & { id: number };
@@ -86,6 +88,7 @@ export function Importer<Row extends BaseRow>({
   onClose,
   children: content,
   locale,
+  sx,
   ...customPapaParseConfig
 }: ImporterProps<Row>): React.ReactElement {
   // helper to combine our displayed content and the user code that provides field definitions
@@ -142,7 +145,7 @@ export function Importer<Row extends BaseRow>({
   if (!fileAccepted || fileState === null || externalPreview === null) {
     return (
       <LocaleContext.Provider value={locale}>
-        <div className="CSVImporter_Importer">
+        <div className="CSVImporter_Importer" css={sx?.ImporterStyles ?? null}>
           <FileStep
             customConfig={customPapaParseConfig}
             assumeNoHeaders={assumeNoHeaders}
@@ -164,7 +167,7 @@ export function Importer<Row extends BaseRow>({
   if (!fieldsAccepted || fieldsState === null) {
     return (
       <LocaleContext.Provider value={locale}>
-        <div className="CSVImporter_Importer">
+        <div className="CSVImporter_Importer" css={sx?.ImporterStyles ?? null}>
           <FieldsStep
             fileState={fileState}
             fields={fields}
@@ -189,8 +192,9 @@ export function Importer<Row extends BaseRow>({
 
   return (
     <LocaleContext.Provider value={locale}>
-      <div className="CSVImporter_Importer">
+      <div className="CSVImporter_Importer" css={sx?.ImporterStyles ?? null}>
         <ProgressDisplay
+          sx={sx?.ProgressDisplaySx ?? null}
           fileState={fileState}
           fieldsState={fieldsState}
           externalPreview={externalPreview}

@@ -16,7 +16,10 @@ type SampleImporterProps = ImporterProps<{ fieldA: string }>;
 
 export const Main: Story<SampleImporterProps> = (args: SampleImporterProps) => {
   return (
-    <Importer {...args}>
+    <Importer
+      {...args}
+      sx={{ ImporterStyles: { background: 'black', padding: '1000px' } }}
+    >
       <ImporterField name="fieldA" label="Field A" />
       <ImporterField name="fieldB" label="Field B" optional />
     </Importer>

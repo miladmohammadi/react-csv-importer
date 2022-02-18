@@ -157,7 +157,6 @@ function nodeStreamWrapper(stream: ReadableStream, encoding: string): Readable {
       throw new Error('unknown stream shim event: ' + event);
     },
 
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     removeListener(event: string, callback: (param: unknown) => void) {
       // stop and clear everything for simplicity
       isStopped = true;
