@@ -8,8 +8,10 @@ import { ImporterFrame } from './ImporterFrame';
 
 import './ProgressDisplay.scss';
 import { useLocale } from '../locale/LocaleContext';
+
 /** @jsx jsx */
 import { jsx } from '@emotion/react';
+
 // compute actual UTF-8 bytes used by a string
 // (inspired by https://stackoverflow.com/questions/10576905/how-to-convert-javascript-unicode-notation-code-to-utf-8)
 function countUTF8Bytes(item: string) {

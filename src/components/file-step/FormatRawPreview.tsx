@@ -4,7 +4,8 @@ import { useLocale } from '../../locale/LocaleContext';
 import { FormatErrorMessage } from './FormatErrorMessage';
 
 import './FormatRawPreview.scss';
-
+/** @jsx jsx */
+import { jsx } from '@emotion/react';
 const RAW_PREVIEW_SIZE = 500;
 
 export const FormatRawPreview: React.FC<{

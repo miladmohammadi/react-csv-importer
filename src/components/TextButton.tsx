@@ -1,7 +1,8 @@
 import React from 'react';
 
 import './TextButton.scss';
-
+/** @jsx jsx */
+import { jsx } from '@emotion/react';
 export const TextButton: React.FC<{
   disabled?: boolean;
   onClick?: () => void;
